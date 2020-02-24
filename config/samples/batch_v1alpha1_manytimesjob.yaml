@@ -1,7 +1,18 @@
 apiVersion: batch.kanatakita.com/v1alpha1
 kind: ManyTimesJob
 metadata:
-  name: manytimesjob-sample
+  name: test
 spec:
-  # Add fields here
-  foo: bar
+  done: false
+  failedJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: myapp-container
+            image: busybox
+            command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 10']
+          restartPolicy: Never
+      backoffLimit: 3

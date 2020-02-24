@@ -24,6 +24,7 @@ import (
 
 // ManyTimesJobSpec defines the desired state of ManyTimesJob
 type ManyTimesJobSpec struct {
+	// TODO: do not affect below
 	// +kubebuilder:validation:Default=false
 
 	// Default false, true when job finished.
@@ -35,6 +36,8 @@ type ManyTimesJobSpec struct {
 	JobTemplate batchv1beta1.JobTemplateSpec `json:"jobTemplate"`
 
 	// +kubebuilder:validation:Minimum=0
+	// TODO: do not affect below
+	// +kubebuilder:validation:Default=3
 
 	// The number of successful finished jobs to retain.
 	// This is a pointer to distinguish between explicit zero and not specified.
@@ -42,6 +45,8 @@ type ManyTimesJobSpec struct {
 	SuccessfulJobsHistoryLimit *int32 `json:"successfulJobsHistoryLimit,omitempty"`
 
 	// +kubebuilder:validation:Minimum=0
+	// TODO: do not affect below
+	// +kubebuilder:validation:Default=1
 
 	// The number of failed finished jobs to retain.
 	// This is a pointer to distinguish between explicit zero and not specified.
@@ -58,6 +63,7 @@ type ManyTimesJobStatus struct {
 }
 
 // +kubebuilder:object:root=true
+// +kubebuilder:subresource:status
 
 // ManyTimesJob is the Schema for the manytimesjobs API
 type ManyTimesJob struct {
