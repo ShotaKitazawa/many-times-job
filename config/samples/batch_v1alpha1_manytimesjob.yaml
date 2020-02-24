@@ -1,0 +1,7 @@
+apiVersion: batch.kanatakita.com/v1alpha1
+kind: ManyTimesJob
+metadata:
+  name: manytimesjob-sample
+spec:
+  # Add fields here
+  foo: bar

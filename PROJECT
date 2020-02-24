@@ -1,0 +1,7 @@
+domain: kanatakita.com
+repo: github.com/ShotaKitazawa/manytimesjob
+resources:
+- group: batch
+  kind: ManyTimesJob
+  version: v1alpha1
+version: "2"
